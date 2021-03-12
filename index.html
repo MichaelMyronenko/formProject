@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body>
+<div class="formBlock">
+	<h1>Урок "Формы": теги и их атрибуты.</h1>
+	<h2>Расскажите немного о себе...</h2>
+	<form action="#">
+		<fieldset>
+			<legend><b>Коротко о себе</b></legend>
+
+			<label for="firstname">Имя</label>
+			<input type="test" name="firstname" id="firstname"><br>
+			<label for="lastname">Фамилия</label>
+			<input type="test" name="lastname" id="lastname"><br>
+
+			<span>Пол:</span>
+			<label for="msex">Мужской</label>
+			<input type="radio" name="sex" id="msex">
+			<label for="fsex">Женский</label>
+			<input type="radio" name="sex" id="fsex"><br>
+
+			<label for="age">Возраст: </label>
+			<input type="number" name="age" id="age">
+			<label for="age">лет</label>
+		</fieldset>
+
+		<fieldset>
+			<legend><b>Подробнее о себе</b></legend>
+
+			<label for="youngMan">Молодой парень</label>
+			<input type="radio" name="sexDetails" id="youngMan"><br>
+			<label for="girl">Девушка</label>
+			<input type="radio" name="sexDetails" id="girl"><br>
+
+			<input type="text" name="birthdate" id="birthdate">
+			<label for="birthdate">Дата рождения</label><br>
+			<input type="text" name="maritalStatus" id="maritalStatus">
+			<label for="maritalstatus">Семейное положение</label><br>
+			<input type="text" name="socialStatus" id="socialStatus">
+			<label for="socialstatus">Социальный статус</label><br>
+			<input type="text" name="address" id="address">
+			<label for="address">Местожительство</label><br>
+
+			<b>Что вы обычно делаете на выходных:</b><br>
+
+			<input type="checkbox" name="weekendleisure" id="sleep">
+			<label for="sleep">Сплю</label><br>
+			<input type="checkbox" name="weekendleisure" id="timeWithFriends">
+			<label for="timeWithFriends">Гуляю с друзьями</label><br>
+			<input type="checkbox" name="weekendleisure" id="fishing">
+			<label for="fishing">Хожу на рыбалку</label><br>
+			<input type="checkbox" name="weekendLeisure" id="computerGames">
+			<label for="computerGames">Играю в игры</label><br>
+
+			<b>Рассказать о формах в книге, посвященной HTML:</b><br>
+
+			<select name="siteFrequency" id="siteFrequency">
+				<option>Site frequency</option>
+				<option>Something else</option>
+				<option>The same as previous</option>
+			</select><br>
+
+			<b>Сколько книг вы прочитали за свою жизнь:</b><br>
+
+			<input type="radio" name="numOfBooks" id="fewBooks">
+			<label for="fewBooks">0-10</label><br>
+			<input type="radio" name="numOfBooks" id="someBooks">
+			<label for="someBooks">11-20</label><br>
+			<input type="radio" name="numOfBooks" id="manyBooks">
+			<label for="manyBooks">21-50</label><br>
+			<input type="radio" name="numOfBooks" id="manyManyBooks">
+			<label for="manyManyBooks">50+</label><br>
+
+			<label for="comments"><b>Ваши комментароии:</b></label><br>
+			<textarea name="comments" id="comments" cols="50" rows="10"></textarea><br>
+
+			<select name="siteFrequency" id="siteFrequency" size="3">
+				<option>Первая позиция</option>
+				<option>Вторая позиция</option>
+				<option>Третья позиция</option>
+			</select><br>
+
+		</fieldset>
+
+		<fieldset>
+			<legend>И в заключении</legend>
+
+			<input type="text" name="fieldForUser" id="fieldForUser" placeholder="Это поле было введено для вас"><br>
+
+			<label><b>Email:</b></label><br>
+			<input type="email" name="email" id="email"><br>
+
+			<b>Хотите подписатся на самую модную рассылку спама?</b><br>
+			<i>Выберите категрии</i><br>
+
+			<input type="checkbox" name="spam" id="equipment">
+			<label for="equipment">Оборудование</label><br>
+			<input type="checkbox" name="spam" id="cooking">
+			<label for="cooking">Как приготовить обеды</label><br>
+			<input type="checkbox" name="spam" id="millionForTwoDays">
+			<label for="millionForTwoDays">Заработай миллион за два дня</label><br>
+
+			<b>Насколько сложная задача:</b><br>
+
+			<input type="radio" name="taskComplexity" id="easy">
+			<label for="easy">Совсем нет</label><br>
+			<input type="radio" name="taskComplexity" id="medium">
+			<label for="medium">Так себе</label><br>
+			<input type="radio" name="taskComplexity" id="hard">
+			<label for="hard">Еле справились</label><br>
+
+		</fieldset>
+	</form>
+</div>
+</body>
+</html>
