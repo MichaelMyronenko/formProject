@@ -13,8 +13,10 @@ form fieldset {
 	margin-bottom: 10px;
 }
 
-.shortFormInputBlock input {
-	border-style: 1px solid black;
+.shortFormInputBlock input.widedTextInput {
+	display: block;
+	margin-left: 50px;
+	text-align: center;
 }
 
 .textBlock {
