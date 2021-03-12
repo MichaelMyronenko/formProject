@@ -13,51 +13,62 @@
 		<fieldset>
 			<legend><b>Коротко о себе</b></legend>
 
-			<label for="firstname">Имя</label>
-			<input type="test" name="firstname" id="firstname"><br>
-			<label for="lastname">Фамилия</label>
-			<input type="test" name="lastname" id="lastname"><br>
+			<div class="shortFormInputBlock">
+				<label for="firstname">Имя</label>
+				<input class="widedTextInput" type="text" name="firstname" id="firstname"><br>
+			</div>
+			<div class="shortFormInputBlock">
+				<label for="lastname">Фамилия</label>
+				<input class="widedTextInput" type="text" name="lastname" id="lastname"><br>
+			</div>
 
-			<span>Пол:</span>
-			<label for="msex">Мужской</label>
-			<input type="radio" name="sex" id="msex">
-			<label for="fsex">Женский</label>
-			<input type="radio" name="sex" id="fsex"><br>
-
-			<label for="age">Возраст: </label>
-			<input type="number" name="age" id="age">
-			<label for="age">лет</label>
+			<div class="shortFormInputBlock">
+				<span>Пол:</span>
+				<label for="msex">Мужской</label>
+				<input type="radio" name="sex" id="msex">
+				<label for="fsex">Женский</label>
+				<input type="radio" name="sex" id="fsex"><br>
+			</div>
+				<div class="shortFormInputBlock">
+				<label for="age">Возраст: </label>
+				<input type="number" name="age" id="age">
+				<label for="age">лет</label>
+			</div>
 		</fieldset>
 
 		<fieldset>
 			<legend><b>Подробнее о себе</b></legend>
 
-			<label for="youngMan">Молодой парень</label>
-			<input type="radio" name="sexDetails" id="youngMan"><br>
-			<label for="girl">Девушка</label>
-			<input type="radio" name="sexDetails" id="girl"><br>
+			<input type="radio" name="couple" id="boyfriend">
+			<label for="boyfriend">Молодой человек</label><br>
+			<input type="radio" name="couple" id="girlfriend">
+			<label for="girlfriend">Девушка</label><br>
 
-			<input type="text" name="birthdate" id="birthdate">
-			<label for="birthdate">Дата рождения</label><br>
-			<input type="text" name="maritalStatus" id="maritalStatus">
-			<label for="maritalstatus">Семейное положение</label><br>
-			<input type="text" name="socialStatus" id="socialStatus">
-			<label for="socialstatus">Социальный статус</label><br>
-			<input type="text" name="address" id="address">
-			<label for="address">Местожительство</label><br>
+			<div class="textBlock">
+				<input type="text" name="birthdate" id="birthdate">
+				<label for="birthdate">Дата рождения</label><br>
+				<input type="text" name="maritalStatus" id="maritalStatus">
+				<label for="maritalstatus">Семейное положение</label><br>
+				<input type="text" name="socialStatus" id="socialStatus">
+				<label for="socialstatus">Социальный статус</label><br>
+				<input type="text" name="address" id="address">
+				<label for="address">Местожительство</label><br>
+			</div>
 
-			<b>Что вы обычно делаете на выходных:</b><br>
+			<b class="subtitle">Что вы обычно делаете на выходных:</b><br>
 
-			<input type="checkbox" name="weekendleisure" id="sleep">
-			<label for="sleep">Сплю</label><br>
-			<input type="checkbox" name="weekendleisure" id="timeWithFriends">
-			<label for="timeWithFriends">Гуляю с друзьями</label><br>
-			<input type="checkbox" name="weekendleisure" id="fishing">
-			<label for="fishing">Хожу на рыбалку</label><br>
-			<input type="checkbox" name="weekendLeisure" id="computerGames">
-			<label for="computerGames">Играю в игры</label><br>
+			<div class="checkboxBlock">
+				<input type="checkbox" name="weekendleisure" id="sleep">
+				<label for="sleep">Сплю</label><br>
+				<input type="checkbox" name="weekendleisure" id="timeWithFriends">
+				<label for="timeWithFriends">Гуляю с друзьями</label><br>
+				<input type="checkbox" name="weekendleisure" id="fishing">
+				<label for="fishing">Хожу на рыбалку</label><br>
+				<input type="checkbox" name="weekendLeisure" id="computerGames">
+				<label for="computerGames">Играю в игры</label><br>
+			</div>
 
-			<b>Рассказать о формах в книге, посвященной HTML:</b><br>
+			<div class="subtitle"><b>Рассказать о формах в книге, посвященной HTML:</b></div><br>
 
 			<select name="siteFrequency" id="siteFrequency">
 				<option>Site frequency</option>
@@ -65,7 +76,7 @@
 				<option>The same as previous</option>
 			</select><br>
 
-			<b>Сколько книг вы прочитали за свою жизнь:</b><br>
+			<div class="subtitle"><b>Сколько книг вы прочитали за свою жизнь:</b></div><br>
 
 			<input type="radio" name="numOfBooks" id="fewBooks">
 			<label for="fewBooks">0-10</label><br>
@@ -76,8 +87,10 @@
 			<input type="radio" name="numOfBooks" id="manyManyBooks">
 			<label for="manyManyBooks">50+</label><br>
 
-			<label for="comments"><b>Ваши комментароии:</b></label><br>
-			<textarea name="comments" id="comments" cols="50" rows="10"></textarea><br>
+			<div class="textareaBlock">
+				<label for="comments"><b>Ваши комментароии:</b></label><br>
+				<textarea name="comments" id="comments" cols="50" rows="10"></textarea><br>
+			</div>
 
 			<select name="siteFrequency" id="siteFrequency" size="3">
 				<option>Первая позиция</option>
@@ -90,13 +103,15 @@
 		<fieldset>
 			<legend>И в заключении</legend>
 
-			<input type="text" name="fieldForUser" id="fieldForUser" placeholder="Это поле было введено для вас"><br>
+			<input class="widedTextInput" type="text" name="fieldForUser" id="fieldForUser" placeholder="Это поле было введено для вас"><br>
 
-			<label><b>Email:</b></label><br>
-			<input type="email" name="email" id="email"><br>
+			<div class="emailBlock">
+				<label><b>Email:</b></label><br>
+				<input class="widedTextInput" type="email" name="email" id="email"><br>
+			</div>
 
-			<b>Хотите подписатся на самую модную рассылку спама?</b><br>
-			<i>Выберите категрии</i><br>
+			<div class="subtitle"><b>Хотите подписатся на самую модную рассылку спама?</b><br>
+			<div class="thirdLevSubtitle"><i>Выберите категрии</i></div><br>
 
 			<input type="checkbox" name="spam" id="equipment">
 			<label for="equipment">Оборудование</label><br>
@@ -105,7 +120,7 @@
 			<input type="checkbox" name="spam" id="millionForTwoDays">
 			<label for="millionForTwoDays">Заработай миллион за два дня</label><br>
 
-			<b>Насколько сложная задача:</b><br>
+			<div class="subtitle"><b>Насколько сложная задача:</b></div><br>
 
 			<input type="radio" name="taskComplexity" id="easy">
 			<label for="easy">Совсем нет</label><br>

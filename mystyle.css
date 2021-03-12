@@ -2,3 +2,46 @@
 	width: 50%;
 	margin: auto;
 }
+
+form fieldset {
+	margin-bottom: 15px;
+	padding: 20px 10px;
+	border: 1px solid gray;
+}
+
+.shortFormInputBlock {
+	margin-bottom: 10px;
+}
+
+.shortFormInputBlock input {
+	border-style: 1px solid black;
+}
+
+.textBlock {
+	margin-bottom: 20px;
+}
+
+.subtitle {
+	margin-top: 20px;
+}
+
+.checkboxBlock {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.textareaBlock {
+	margin-top: 20px;
+}
+
+#age {
+	width: 40px;
+}
+
+.emailBlock {
+	margin-top: 20px;
+}
+
+.widedTextInput {
+	width: 200px;
+}
