@@ -13,12 +13,6 @@ form fieldset {
 	margin-bottom: 10px;
 }
 
-.shortFormInputBlock input.widedTextInput {
-	display: block;
-	margin-left: 50px;
-	text-align: center;
-}
-
 .textBlock {
 	margin-bottom: 20px;
 }
