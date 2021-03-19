@@ -1,30 +1,58 @@
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'Roboto Slab';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTUSjIg1_i6t8kCHKm45xW4.ttf) format('truetype');
+  src: url("../fonts/RobotoSlab-Bold.ttf") format('truetype');
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_dJE7g4.ttf) format('truetype');
+  src: url("../fonts/Montserrat-Bold.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Montserrat-Regular.ttf") format('truetype');
 }
 @font-face {
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/robotoslab/v13/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojISWaA.ttf) format('truetype');
+  src: url("../fonts/RobotoSlab-Regular.ttf") format('truetype');
 }
 @font-face {
   font-family: 'Roboto Slab';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/robotoslab/v13/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjoa4OWaA.ttf) format('truetype');
+  src: url("../fonts/RobotoSlab-Medium.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Montserrat-Medium.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/Montserrat-SemiBold.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/RobotoSlab-SemiBold.ttf") format('truetype');
 }
 body {
   font-family: 'Roboto Slab';
@@ -54,14 +82,14 @@ body {
   background-color: #6d2728;
 }
 .header .logo {
+  visibility: hidden;
+}
+.header .logo a {
   font-family: 'Montserrat';
   font-weight: bold;
   font-size: 24px;
   color: white;
-  visibility: hidden;
-}
-[class*="col-"] {
-  width: 100%;
+  text-decoration: none;
 }
 .menu {
   font-family: 'Montserrat';
@@ -267,6 +295,175 @@ body {
     text-align: left;
     margin: 40px 0 0 0;
   }
+}
+@media only screen and (min-width: 1024px) {
+  .menu-box ul {
+    width: 530px;
+    float: right;
+  }
+}
+.services-section {
+  height: 580px;
+  text-align: center;
+  padding: 70px 40px 0;
+}
+.services-section .services-main-message h3 {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 20px;
+  color: #555555;
+}
+.services-section .services-main-message hr {
+  margin: 30px auto;
+  width: 50px;
+  color: #555555;
+}
+.services-section .services-main-message h6 {
+  font-family: 'Roboto Slab';
+  font-weight: 400;
+  font-size: 16px;
+  color: #555555;
+}
+.services-section .cards {
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card {
+  margin: 30px 20px;
+}
+.card-content a {
+  text-decoration: none;
+}
+.card-content a h5 {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 14px;
+  color: #555555;
+  margin: 10px 0 20px;
+}
+.card-content p {
+  font-family: 'Roboto Slab';
+  font-weight: 500;
+  font-size: 14px;
+  color: #555555;
+}
+.card-icon {
+  display: block;
+  height: 90px;
+  width: 90px;
+  background-image: url("../img/icons.png");
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: 2px solid #dddddd;
+  margin: 0 auto;
+}
+.card:nth-child(1) > .card-icon {
+  background-position: 21px 19px;
+}
+.card:nth-child(1) > .card-icon:active {
+  background-color: #c0301c;
+  background-position: 21px -88px;
+}
+.card:nth-child(2) > .card-icon {
+  background-position: -94px 19px;
+}
+.card:nth-child(2) > .card-icon:active {
+  background-color: #c0301c;
+  background-position: -94px -88px;
+}
+.card:nth-child(3) > .card-icon {
+  background-position: -210px 19px;
+}
+.card:nth-child(3) > .card-icon:active {
+  background-color: #c0301c;
+  background-position: -210px -88px;
+}
+@media only screen and (min-width: 768px) {
+  .card .card-content h5 {
+    margin: 25px 0 30px;
+  }
+  .card:nth-child(1) > .card-icon:hover {
+    background-color: #c0301c;
+    background-position: -94px -88px;
+  }
+  .card:nth-child(2) {
+    order: 3;
+  }
+  .card:nth-child(2) > .card-icon:hover {
+    background-color: #c0301c;
+    background-position: -94px -88px;
+  }
+  .card:nth-child(3) {
+    order: 2;
+  }
+  .card:nth-child(3) > .card-icon:hover {
+    background-color: #c0301c;
+    background-position: 21px -88px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .services-section .cards {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 70px;
+  }
+  .card {
+    margin-top: 0;
+  }
+  .card .card-content a h5 {
+    margin: 30px 0 25px;
+  }
+  .card:nth-child(2) {
+    order: 2;
+  }
+  .card:nth-child(3) {
+    order: 3;
+  }
+}
+[class*="col-"] {
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .col-m-1 {
+    width: 8.33%;
+  }
+  .col-m-2 {
+    width: 16.66%;
+  }
+  .col-m-3 {
+    width: 25%;
+  }
+  .col-m-4 {
+    width: 33.33%;
+  }
+  .col-m-5 {
+    width: 41.66%;
+  }
+  .col-m-6 {
+    width: 50%;
+  }
+  .col-m-7 {
+    width: 58.33%;
+  }
+  .col-m-8 {
+    width: 66.66%;
+  }
+  .col-m-9 {
+    width: 75%;
+  }
+  .col-m-10 {
+    width: 83.33%;
+  }
+  .col-m-11 {
+    width: 91.66%;
+  }
+  .col-m-12 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1024px) {
   .col-s-1 {
     width: 8.33%;
   }
@@ -302,12 +499,6 @@ body {
   }
   .col-s-12 {
     width: 100%;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .menu-box ul {
-    width: 530px;
-    float: right;
   }
 }
 * {

@@ -1,9 +1,66 @@
 // main: ../mainstyles.less
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
+@font-path: '../fonts';
 
 @header-font: 'Montserrat';
 @regular-font: 'Roboto Slab';
+
+@font-face {
+	font-family: @regular-font;
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("@{font-path}/RobotoSlab-Bold.ttf") format('truetype');
+}
+@font-face {
+	font-family: @header-font;
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("@{font-path}/Montserrat-Bold.ttf") format('truetype'),
+}
+@font-face {
+	font-family: @header-font;
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("@{font-path}/Montserrat-Regular.ttf") format('truetype');
+}
+@font-face {
+	font-family: @regular-font;
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("@{font-path}/RobotoSlab-Regular.ttf") format('truetype');
+}
+@font-face {
+	font-family: @regular-font;
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("@{font-path}/RobotoSlab-Medium.ttf") format('truetype');
+}
+@font-face {
+	font-family: @header-font;
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("@{font-path}/Montserrat-Medium.ttf") format('truetype'),
+}
+@font-face {
+	font-family: @header-font;
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("@{font-path}/Montserrat-SemiBold.ttf") format('truetype');
+}
+@font-face {
+	font-family: @regular-font;
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("@{font-path}/RobotoSlab-SemiBold.ttf") format('truetype');
+}
 
 .font (@h-font: @regular-font, @f-size:24px, @f-weight:normal, @f-color:black) {
 	font-family: @h-font;

@@ -6,7 +6,6 @@
 @mobile-menu-bg-color: #6d2728;
 @welcome-section-bg-color: #681d17;
 
-@html-body-height: 100%;
 @welcome-section-height: 100vh;
 @welcome-section-body-height: calc(@welcome-section-height - @header-height);
 @header-height: 55px;
@@ -19,6 +18,7 @@
   background-color: @welcome-section-bg-color;
   width: 100%;
   height: @welcome-section-height;
+
   &-body {
     background-image: url(@welcome-section-mobile-bg-img);
     background-position: top;
@@ -37,14 +37,15 @@
   height: @header-height;
   max-height: @header-max-height;
   background-color: @mobile-menu-bg-color;
-  .logo {
-    .font(@header-font, 24px, bold, white);
-    visibility: hidden;
-  }
-}
 
-[class*="col-"] {
-  width: 100%;
+  .logo {
+    visibility: hidden;
+
+    a {
+      .font(@header-font, 24px, bold, white);
+      text-decoration: none;
+    }
+  }
 }
 
 .menu {
@@ -61,10 +62,12 @@
 
       & ~ .menu-btn > span {
         transform: rotate(45deg);
+
         &::before {
           top: 0;
           transform: rotate(0deg);
         }
+
         &::after {
           top: 0;
           transform: rotate(90deg);
@@ -83,6 +86,7 @@
     height: 26px;
     cursor: pointer;
     z-index: 1;
+
     & > span {
       &, &::before, &:after {
         display: block;
@@ -92,10 +96,12 @@
         background-color: white;
         transition-duration: @normal-transition-duration;
       }
+
       &::before {
         content: '';
         top: -8px;
       }
+
       &::after {
         content: '';
         top: 8px;
@@ -114,6 +120,7 @@
     padding: 80px 0;
     background-color: @mobile-menu-bg-color;
     transition-duration: @normal-transition-duration;
+
     hr {
       margin-top: -25px;
       margin-bottom: 40px;
@@ -125,12 +132,12 @@
     }
   }
 
-
   &-item {
     display: block;
     padding: 12px 24px;
     text-decoration: none;
     .font(@header-font, 24px, 500, white);
+
     &:active {
       color: darken(red, 30%);
       background-color: white;
@@ -172,7 +179,7 @@
 @media only screen and (min-width: 768px) {
 
   @header-height: @header-max-height;
-  @welcome-padding-top: calc(@welcome-section-body-height /3);
+  @welcome-padding-top: calc(@welcome-section-body-height / 3);
 
   .menu {
     &-btn {
@@ -189,9 +196,11 @@
       padding: 5px 3px;
       text-decoration: none;
       margin-right: 4%;
+
       &:hover {
         border-bottom: 2px solid white;
       }
+
       &:active {
         border-top: 2px solid white;
         background-color: transparent;
@@ -227,6 +236,7 @@
     background-size: cover;
     height: @welcome-section-height;
     padding: 0 40px;
+
     &-body {
       background-image: none;
       background-color: transparent;
@@ -249,6 +259,7 @@
 
   .button {
     font-weight: 600;
+
     &:hover {
       color: darken(red, 30%);
       background-color: white;
@@ -260,28 +271,16 @@
     display: flex;
     height: @header-height;
     background-color: transparent;
+
     .logo {
       visibility: visible;
       text-align: left;
       margin: 40px 0 0 0;
     }
   }
-
-  .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;}
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
   .menu {
     &-box {
       ul {
