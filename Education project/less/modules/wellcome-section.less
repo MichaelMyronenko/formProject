@@ -1,62 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
+@import "../base/fonts";
 
+@welcome-section-mobile-bg-img: '../img/bg_770.jpg';
+@welcome-section-bg-img: '../img/bg.jpg';
 
-@first-section-mobile-bg-img: 'img/bg_770.jpg';
-@first-section-bg-img: 'img/bg.jpg';
-
-@header-font: 'Montserrat';
-@regular-font: 'Roboto Slab';
 @mobile-menu-bg-color: #6d2728;
-@first-section-bg-color: #681d17;
+@welcome-section-bg-color: #681d17;
 
 @html-body-height: 100%;
-@first-section-height: 615px;
+@welcome-section-height: 100vh;
+@welcome-section-body-height: calc(@welcome-section-height - @header-height);
 @header-height: 55px;
 @header-max-height: 100px;
-@content-max-wdth: 1200px;
+@content-max-width: 1200px;
 @normal-transition-duration: 0.25s;
+@welcome-padding-top: calc(@welcome-section-body-height / 5);
 
-.font (@h-font: @regular-font, @f-size:24px, @f-weight:normal, @f-color:black) {
-  font-family: @h-font;
-  font-weight: @f-weight;
-  font-size: @f-size;
-  color: @f-color;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: @html-body-height;
-}
-
-.first-section {
-  background-color: @first-section-bg-color;
+.welcome-section {
+  background-color: @welcome-section-bg-color;
   width: 100%;
-  height: @first-section-height;
-
+  height: @welcome-section-height;
   &-body {
-    background-image: url(@first-section-mobile-bg-img);
+    background-image: url(@welcome-section-mobile-bg-img);
     background-position: top;
-    background-size: cover;
-    background-color: @first-section-bg-color;
-    height: 100%;
+    background-color: @welcome-section-bg-color;
+    height: @welcome-section-body-height;
+    padding-top: @welcome-padding-top;
   }
 }
 
 .content-box {
   margin: 0 auto;
-  max-width: @content-max-wdth;
+  max-width: @content-max-width;
 }
 
 .header {
   height: @header-height;
   max-height: @header-max-height;
   background-color: @mobile-menu-bg-color;
-
   .logo {
     .font(@header-font, 24px, bold, white);
     visibility: hidden;
@@ -81,12 +61,10 @@ html, body {
 
       & ~ .menu-btn > span {
         transform: rotate(45deg);
-
         &::before {
           top: 0;
           transform: rotate(0deg);
         }
-
         &::after {
           top: 0;
           transform: rotate(90deg);
@@ -105,7 +83,6 @@ html, body {
     height: 26px;
     cursor: pointer;
     z-index: 1;
-
     & > span {
       &, &::before, &:after {
         display: block;
@@ -115,12 +92,10 @@ html, body {
         background-color: white;
         transition-duration: @normal-transition-duration;
       }
-
       &::before {
         content: '';
         top: -8px;
       }
-
       &::after {
         content: '';
         top: 8px;
@@ -139,7 +114,6 @@ html, body {
     padding: 80px 0;
     background-color: @mobile-menu-bg-color;
     transition-duration: @normal-transition-duration;
-
     hr {
       margin-top: -25px;
       margin-bottom: 40px;
@@ -157,7 +131,6 @@ html, body {
     padding: 12px 24px;
     text-decoration: none;
     .font(@header-font, 24px, 500, white);
-
     &:active {
       color: darken(red, 30%);
       background-color: white;
@@ -165,13 +138,13 @@ html, body {
   }
 }
 
-#greeting {
+.greeting {
   text-align: center;
   color: white;
   margin: 0 15px;
 
   h1 {
-    .font(@header-font, 38px, normal, white)
+    .font(@header-font, 38px, 500, white)
   }
 
   h4 {
@@ -181,7 +154,7 @@ html, body {
 }
 
 .button {
-  .font(@header-font, 16px, 450, white);
+  .font(@header-font, 16px, 500, white);
   display: block;
   text-align: center;
   margin: 60px auto;
@@ -198,8 +171,8 @@ html, body {
 
 @media only screen and (min-width: 768px) {
 
-  @first-section-height: 100%;
-  @header-heigh: @header-max-height;
+  @header-height: @header-max-height;
+  @welcome-padding-top: calc(@welcome-section-body-height /3);
 
   .menu {
     &-btn {
@@ -216,11 +189,9 @@ html, body {
       padding: 5px 3px;
       text-decoration: none;
       margin-right: 4%;
-
       &:hover {
         border-bottom: 2px solid white;
       }
-
       &:active {
         border-top: 2px solid white;
         background-color: transparent;
@@ -234,9 +205,8 @@ html, body {
       right: 0;
       transition-duration: 0s;
       background-color: transparent;
-      padding: 0 40px 0 0;
-      margin: 40px 0 0 0;
-      margin-left: auto;
+      padding: 0;
+      margin: 40px 0 0 auto;
       max-width: 530px;
 
       ul {
@@ -250,27 +220,25 @@ html, body {
     }
   }
 
-  .first-section {
-    background-image: url(@first-section-bg-img);
+  .welcome-section {
+    background-image: url(@welcome-section-bg-img);
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    height: @first-section-height;
-
+    height: @welcome-section-height;
+    padding: 0 40px;
     &-body {
       background-image: none;
       background-color: transparent;
-      height: 100%;
+      height: @welcome-section-body-height;
+      padding-top: @welcome-padding-top;
     }
   }
 
 
-  #greeting {
-    position: relative;
-    top: 32.83%;
-
+  .greeting {
     h1 {
-      .font (@header-font, 48px, 500, white);
+      .font (@header-font, 48px, 600, white);
     }
 
     h4 {
@@ -280,8 +248,7 @@ html, body {
   }
 
   .button {
-    font-weight: 500;
-
+    font-weight: 600;
     &:hover {
       color: darken(red, 30%);
       background-color: white;
@@ -293,62 +260,25 @@ html, body {
     display: flex;
     height: @header-height;
     background-color: transparent;
-
     .logo {
       visibility: visible;
       text-align: left;
       margin: 40px 0 0 0;
-      padding: 0 40px;
     }
   }
 
-  .col-s-1 {
-    width: 8.33%;
-  }
-
-  .col-s-2 {
-    width: 16.66%;
-  }
-
-  .col-s-3 {
-    width: 25%;
-  }
-
-  .col-s-4 {
-    width: 33.33%;
-  }
-
-  .col-s-5 {
-    width: 41.66%;
-  }
-
-  .col-s-6 {
-    width: 50%;
-  }
-
-  .col-s-7 {
-    width: 58.33%;
-  }
-
-  .col-s-8 {
-    width: 66.66%;
-  }
-
-  .col-s-9 {
-    width: 75%;
-  }
-
-  .col-s-10 {
-    width: 83.33%;
-  }
-
-  .col-s-11 {
-    width: 91.66%;
-  }
-
-  .col-s-12 {
-    width: 100%;
-  }
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
 }
 
 @media only screen and (min-width: 992px) {
@@ -361,20 +291,3 @@ html, body {
     }
   }
 }
-
-@media only screen and (min-width: 1400px) {
-
-  .header {
-    .logo {
-      padding: 0;
-    }
-  }
-
-  .menu {
-    &-box {
-      padding: 0;
-    }
-  }
-}
-
-
