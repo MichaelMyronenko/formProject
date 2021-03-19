@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
+
+@header-font: 'Montserrat';
+@regular-font: 'Roboto Slab';
+
+.font (@h-font: @regular-font, @f-size:24px, @f-weight:normal, @f-color:black) {
+	font-family: @h-font;
+	font-weight: @f-weight;
+	font-size: @f-size;
+	color: @f-color;
+}
+
+body {
+	.font;
+}
