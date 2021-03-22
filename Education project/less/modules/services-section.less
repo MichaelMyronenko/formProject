@@ -1,7 +1,7 @@
 @import "../base/fonts";
+@import "general";
 
-@services-section-height: 580px;
-@services-h-color: #555555;
+@services-section-height: auto;
 @card-icon-url: "../img/icons.png";
 @card-icon-size: 90px;
 @card-icon-border-color: #dddddd;
@@ -10,23 +10,7 @@
 .services-section {
   height: @services-section-height;
   text-align: center;
-  padding: 70px 40px 0;
-
-  .services-main-message {
-    h3 {
-      .font(@header-font, 20px, 500, @services-h-color);
-    }
-
-    hr {
-      margin: 30px auto;
-      width: 50px;
-      color: @services-h-color;
-    }
-
-    h6 {
-      .font(@regular-font, 16px, 400, @services-h-color);
-    }
-  }
+  padding: 70px 20px 0;
 
   .cards {
     margin: 30px auto;
@@ -44,13 +28,13 @@
       text-decoration: none;
 
       h5 {
-        .font(@header-font, 14px, 500, @services-h-color);
+        .font(@header-font, 14px, 500, @h-text-color);
         margin: 10px 0 20px;
       }
     }
 
     p {
-      .font(@regular-font, 14px, 500, @services-h-color);
+      .font(@regular-font, 14px, normal, @h-text-color);
     }
   }
 
@@ -101,6 +85,9 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .services-section{
+    padding: 70px 40px 0;
+  }
   .card {
     .card-content {
       h5 {
@@ -112,7 +99,7 @@
       & > .card-icon {
         &:hover {
           background-color: @card-icon-red-color;
-          background-position: -94px -88px;
+          background-position: 21px -88px;
         }
       }
     }
@@ -132,7 +119,7 @@
       & > .card-icon {
         &:hover {
           background-color: @card-icon-red-color;
-          background-position: 21px -88px;
+          background-position: -210px -88px;
         }
       }
     }

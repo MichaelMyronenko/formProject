@@ -1,0 +1,21 @@
+@import "../base/fonts";
+
+@h-text-color: #555555;
+
+.section-header {
+  text-align: center;
+
+  h3 {
+    .font(@header-font, 20px, 500, @h-text-color);
+  }
+
+  hr {
+    margin: 30px auto;
+    width: 50px;
+    color: @h-text-color;
+  }
+
+  h6 {
+    .font(@regular-font, 16px, 400, @h-text-color);
+  }
+}

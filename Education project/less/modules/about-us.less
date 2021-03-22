@@ -1,0 +1,25 @@
+@import "../base/fonts";
+@import "general";
+
+@about-us-section-height:  auto;
+
+.about-us-section {
+  height: @about-us-section-height;
+  padding: 70px 20px;
+
+  .about-us-content {
+    display: flex;
+    flex-direction: column;
+    .font(@regular-font, 14px, normal, @h-text-color);
+    p {
+      margin: 50px 0 0;
+      text-align: justify;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .about-us-section {
+    padding: 70px 40px;
+  }
+}

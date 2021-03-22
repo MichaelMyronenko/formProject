@@ -303,26 +303,9 @@ body {
   }
 }
 .services-section {
-  height: 580px;
+  height: auto;
   text-align: center;
-  padding: 70px 40px 0;
-}
-.services-section .services-main-message h3 {
-  font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 20px;
-  color: #555555;
-}
-.services-section .services-main-message hr {
-  margin: 30px auto;
-  width: 50px;
-  color: #555555;
-}
-.services-section .services-main-message h6 {
-  font-family: 'Roboto Slab';
-  font-weight: 400;
-  font-size: 16px;
-  color: #555555;
+  padding: 70px 20px 0;
 }
 .services-section .cards {
   margin: 30px auto;
@@ -345,7 +328,7 @@ body {
 }
 .card-content p {
   font-family: 'Roboto Slab';
-  font-weight: 500;
+  font-weight: normal;
   font-size: 14px;
   color: #555555;
 }
@@ -381,12 +364,15 @@ body {
   background-position: -210px -88px;
 }
 @media only screen and (min-width: 768px) {
+  .services-section {
+    padding: 70px 40px 0;
+  }
   .card .card-content h5 {
     margin: 25px 0 30px;
   }
   .card:nth-child(1) > .card-icon:hover {
     background-color: #c0301c;
-    background-position: -94px -88px;
+    background-position: 21px -88px;
   }
   .card:nth-child(2) {
     order: 3;
@@ -400,7 +386,7 @@ body {
   }
   .card:nth-child(3) > .card-icon:hover {
     background-color: #c0301c;
-    background-position: 21px -88px;
+    background-position: -210px -88px;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -499,6 +485,47 @@ body {
   }
   .col-s-12 {
     width: 100%;
+  }
+}
+.section-header {
+  text-align: center;
+}
+.section-header h3 {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 20px;
+  color: #555555;
+}
+.section-header hr {
+  margin: 30px auto;
+  width: 50px;
+  color: #555555;
+}
+.section-header h6 {
+  font-family: 'Roboto Slab';
+  font-weight: 400;
+  font-size: 16px;
+  color: #555555;
+}
+.about-us-section {
+  height: auto;
+  padding: 70px 20px;
+}
+.about-us-section .about-us-content {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 14px;
+  color: #555555;
+}
+.about-us-section .about-us-content p {
+  margin: 50px 0 0;
+  text-align: justify;
+}
+@media only screen and (min-width: 768px) {
+  .about-us-section {
+    padding: 70px 40px;
   }
 }
 * {
