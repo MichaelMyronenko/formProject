@@ -1,19 +1,148 @@
 @import "../base/fonts";
 @import "general";
 
-@about-us-section-height:  auto;
+@about-us-section-height: auto;
+@arrows-image-url: "../img/arrows.png";
+@social-media-icons: "../img/icons_2.png";
+@arrows-hover-background-color: #c0301c;
 
 .about-us-section {
   height: @about-us-section-height;
   padding: 70px 20px;
 
   .about-us-content {
-    display: flex;
-    flex-direction: column;
-    .font(@regular-font, 14px, normal, @h-text-color);
-    p {
+    .about-us-paragraph {
+      display: flex;
+      flex-direction: column;
+      .font(@regular-font, 14px, normal, @h-text-color);
+
+      p {
+        margin: 50px 0 0;
+        text-align: justify;
+      }
+    }
+
+    .stuff-slider {
+      position: relative;
       margin: 50px 0 0;
-      text-align: justify;
+      width: auto;
+      display: flex;
+      text-align: center;
+      justify-content: space-around;
+
+      .slider-item {
+        width: 90%;
+
+        .slider-item-image-box {
+          position: relative;
+          background-color: @h-text-color;
+          img {
+            transition-duration: .3s;
+            display: block;
+            width: 100%;
+          }
+
+          .slider-item-icons {
+            position: absolute;
+            display: flex;
+            z-index: -1;
+            bottom: 15%;
+            left: 50%;
+            margin-left: -60px;
+            transition-duration: .3s;
+            a {
+              display: block;
+              background-image: url(@social-media-icons);
+              background-repeat: no-repeat;
+              height: 30px;
+              width: 30px;
+            }
+            .facebook-icon {
+              background-position: 11px 6px;
+            }
+            .twitter-icon {
+              background-position: -20px 6px;
+            }
+            .google-plus-icon {
+              background-position: -50px 6px;
+            }
+            .linkedin-icon {
+              background-position: -82px 6px;
+            }
+          }
+        }
+
+        .slider-item-image-box:hover {
+          img {
+            opacity: 0.5;
+          }
+          .slider-item-icons {
+            z-index: 1;
+            a:hover {
+              transition-duration: .3s;
+              background-color: @arrows-hover-background-color;
+            }
+          }
+        }
+
+        h6 {
+          .font(@header-font, 14px, 600, @h-text-color);
+          margin: 10px 0;
+        }
+
+        p {
+          .font(@regular-font, 13px, normal, @h-text-color)
+        }
+      }
+
+      .slider-item:nth-of-type(-n+4) {
+        display: none;
+      }
+
+      .slider-item:nth-of-type(1) {
+        display: block;
+      }
+
+      [class*="arrow-"] {
+        height: 38px;
+        width: 35px;
+        position: absolute;
+        top: 32%;
+        z-index: 1;
+        background-color: @h-text-color;
+        background-image: url(@arrows-image-url);
+        background-repeat: no-repeat;
+      }
+
+      .arrow-left {
+        background-position: 13px 12px;
+        left: 0;
+      }
+
+      .arrow-right {
+        right: 0;
+        background-position: -16px 12px;
+      }
+
+      [class*="arrow-"]:active {
+        background-color: @arrows-hover-background-color;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .about-us-section {
+    .about-us-content {
+      .stuff-slider {
+        .slider-item {
+          width: 45%;
+        }
+
+        .slider-item:nth-of-type(-n+2) {
+          display: block;
+        }
+      }
     }
   }
 }
@@ -21,5 +150,50 @@
 @media only screen and (min-width: 768px) {
   .about-us-section {
     padding: 70px 40px;
+
+    .about-us-content {
+      .about-us-paragraph {
+        flex-direction: row;
+        justify-content: space-between;
+
+        p {
+          width: 48.7%;
+        }
+      }
+
+      .stuff-slider {
+        justify-content: space-between;
+
+        [class*="arrow-"]:hover {
+          background-color: @arrows-hover-background-color;
+        }
+
+        .slider-item {
+          width: 31%;
+        }
+
+        .slider-item:nth-of-type(-n+3) {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .about-us-section {
+    .about-us-content {
+      .stuff-slider {
+        justify-content: space-between;
+
+        .slider-item {
+          width: 23%;
+        }
+
+        .slider-item:nth-of-type(-n+4) {
+          display: block;
+        }
+      }
+    }
   }
 }
