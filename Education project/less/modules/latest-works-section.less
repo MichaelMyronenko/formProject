@@ -1,0 +1,125 @@
+@import "../base/fonts";
+
+@gallery-item-bg-color: #dddddd;
+@view-button-arrow: "../img/arrows_1.png";
+
+.latest-works-section {
+  padding: 70px 0;
+
+  .latest-works-filters {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 75%;
+
+    .filter {
+      text-align: center;
+      display: block;
+      padding: 0 15px;
+
+      a:active {
+        color: @arrows-hover-background-color;
+      }
+    }
+  }
+
+  .content-box {
+    margin-top: 30px;
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .gallery-item-box {
+        width: calc(50% - 30px);
+        margin: 15px;
+
+        .gallery-item {
+          position: relative;
+          background-color: @arrows-hover-background-color;
+
+          img {
+            display: block;
+            width: 100%;
+            transition-duration: @more-slowly-transition-duration;
+          }
+
+          .work-info {
+            text-align: center;
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .latest-works-section {
+    .latest-works-filters {
+      .filter {
+        a:hover {
+          color: @arrows-hover-background-color;
+          cursor: pointer;
+        }
+      }
+    }
+    .content-box {
+      .gallery {
+        justify-content: center;
+        margin: -15px -15px;
+
+        .gallery-item-box {
+          width: calc(33.33% - 30px);
+
+          .gallery-item {
+            .work-info {
+              .name {
+                .font(@header-font, 18px, 500, white);
+              }
+              .type {
+                .font(@regular-font, 12px, normal, white);
+                margin: 15px 0 25px;
+              }
+              .view-button {
+                display: block;
+                width: 100px;
+                height: 38px;
+                margin: 0 auto;
+                padding: 10px;
+                background-color: white;
+                background-position: 68px 13px;
+                background-image: url(@view-button-arrow);
+                background-size: 0;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                transition-duration: @more-slowly-transition-duration;
+                .font(@regular-font, 14px, normal, @arrows-hover-background-color);
+                &:hover {
+                  padding: 10px 25px 0 0;
+                  background-size: auto;
+                  background-position: 75px 13px;
+                }
+              }
+            }
+            &:hover {
+              img {
+                opacity: 0.3;
+              }
+
+              .work-info {
+                z-index: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

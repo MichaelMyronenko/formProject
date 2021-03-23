@@ -17,20 +17,17 @@
 .welcome-section {
   background-color: @welcome-section-bg-color;
   width: 100%;
-  height: @welcome-section-height;
+  height: @welcome-section-height;;
 
   &-body {
     background-image: url(@welcome-section-mobile-bg-img);
-    background-position: top;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: @welcome-section-bg-color;
     height: @welcome-section-body-height;
     padding-top: @welcome-padding-top;
   }
-}
-
-.content-box {
-  margin: 0 auto;
-  max-width: @content-max-width;
 }
 
 .header {
@@ -50,7 +47,6 @@
 
 .menu {
   .font(@header-font, 14px, 500, white);
-
   &-toggle {
     opacity: 0;
 
@@ -79,7 +75,7 @@
   &-btn {
     display: flex;
     align-items: center;
-    position: fixed;
+    position: absolute;
     top: 15px;
     right: 25px;
     width: 26px;
@@ -110,6 +106,7 @@
   }
 
   &-box {
+    overflow: hidden;
     display: block;
     position: fixed;
     visibility: hidden;
@@ -172,6 +169,10 @@
   &:active {
     color: darken(red, 30%);
     background-color: white;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 

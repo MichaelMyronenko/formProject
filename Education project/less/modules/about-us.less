@@ -5,6 +5,7 @@
 @arrows-image-url: "../img/arrows.png";
 @social-media-icons: "../img/icons_2.png";
 @arrows-hover-background-color: #c0301c;
+@more-slowly-transition-duration: .3s;
 
 .about-us-section {
   height: @about-us-section-height;
@@ -37,7 +38,7 @@
           position: relative;
           background-color: @h-text-color;
           img {
-            transition-duration: .3s;
+            transition-duration: @more-slowly-transition-duration;
             display: block;
             width: 100%;
           }
@@ -49,7 +50,7 @@
             bottom: 15%;
             left: 50%;
             margin-left: -60px;
-            transition-duration: .3s;
+            transition-duration: @more-slowly-transition-duration;
             a {
               display: block;
               background-image: url(@social-media-icons);
@@ -79,7 +80,7 @@
           .slider-item-icons {
             z-index: 1;
             a:hover {
-              transition-duration: .3s;
+              transition-duration: @more-slowly-transition-duration;
               background-color: @arrows-hover-background-color;
             }
           }
