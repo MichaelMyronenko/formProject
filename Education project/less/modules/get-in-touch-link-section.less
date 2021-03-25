@@ -1,0 +1,64 @@
+@link-background-img-url: "../img/bg_2.jpg";
+@link-fon-img-url: "../img/fon_2.png+";
+
+.get-in-touch-link-section {
+  .link-background {
+    height: 369px;
+    position: relative;
+    overflow: hidden;
+    background: #c0301c;
+    img {
+      position: relative;
+      display: block;
+      height: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+    }
+    div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      h3 {
+        max-width: 80%;
+        .font(@regular-font, 30px, normal, white)
+      }
+
+      .button {
+        margin: 0;
+        .font(@regular-font, 18px, normal, white);
+        &:active {
+          color: #d3927c;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .get-in-touch-link-section {
+    .link-background {
+      div {
+        h3 {
+          width: 460px;
+        }
+
+        .button {
+          &:hover {
+            color: #d3927c;
+          }
+        }
+      }
+    }
+  }
+}

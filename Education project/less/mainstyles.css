@@ -723,6 +723,7 @@ body {
 .latest-works-section .content-box .gallery .gallery-item-box .gallery-item .work-info {
   text-align: center;
   position: absolute;
+  visibility: hidden;
   z-index: -1;
   top: 50%;
   left: 50%;
@@ -781,6 +782,203 @@ body {
   }
   .latest-works-section .content-box .gallery .gallery-item-box .gallery-item:hover .work-info {
     z-index: 1;
+    visibility: visible;
+  }
+}
+.get-in-touch-link-section .link-background {
+  height: 369px;
+  position: relative;
+  overflow: hidden;
+  background: #c0301c;
+}
+.get-in-touch-link-section .link-background img {
+  position: relative;
+  display: block;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+.get-in-touch-link-section .link-background div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.get-in-touch-link-section .link-background div h3 {
+  max-width: 80%;
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 30px;
+  color: white;
+}
+.get-in-touch-link-section .link-background div .button {
+  margin: 0;
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 18px;
+  color: white;
+}
+.get-in-touch-link-section .link-background div .button:active {
+  color: #d3927c;
+}
+@media only screen and (min-width: 768px) {
+  .get-in-touch-link-section .link-background div h3 {
+    width: 460px;
+  }
+  .get-in-touch-link-section .link-background div .button:hover {
+    color: #d3927c;
+  }
+}
+.recent-blog-posts-section {
+  margin-top: 100px;
+}
+.recent-blog-posts-section .blog {
+  padding: 0 20px;
+}
+.recent-blog-posts-section .blog .post {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+.recent-blog-posts-section .blog .post .post-image-box {
+  display: none;
+}
+.recent-blog-posts-section .blog .post .post-body {
+  width: calc(100% - 0% - 4%);
+}
+.recent-blog-posts-section .blog .post .post-body .post-title {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  grid-template-rows: 75px 1fr;
+  gap: 9px 30px;
+}
+.recent-blog-posts-section .blog .post .post-body .post-title .date-box {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #777777;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 24px;
+  color: #555555;
+}
+.recent-blog-posts-section .blog .post .post-body .post-title .date-box .day {
+  display: block;
+  letter-spacing: 2.4px;
+}
+.recent-blog-posts-section .blog .post .post-body .post-title .date-box .month {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 1.4px;
+}
+.recent-blog-posts-section .blog .post .post-body .post-title .title-text {
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 16px;
+  color: #555555;
+  text-transform: uppercase;
+  align-self: center;
+}
+.recent-blog-posts-section .blog .post .post-body .post-title .title-text:active {
+  color: #c0301c;
+}
+.recent-blog-posts-section .blog .post .post-body .post-title .created-by {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+  align-self: center;
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 13px;
+  color: #777777;
+}
+.recent-blog-posts-section .blog .post .post-body .post-title .created-by a {
+  text-decoration: none;
+  font: inherit;
+  color: inherit;
+}
+.recent-blog-posts-section .blog .post .post-body .post-title .created-by a:active {
+  color: #c0301c;
+}
+.recent-blog-posts-section .blog .post .post-body .post-description {
+  margin: 25px 0 0;
+}
+.recent-blog-posts-section .blog .post .post-body .post-description .post-description-text {
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 14px;
+  color: #555555;
+  margin: 0 0 20px;
+}
+.recent-blog-posts-section .blog .post .post-body .post-description .read-more {
+  font-family: 'Roboto Slab';
+  font-weight: bold;
+  font-size: 13px;
+  color: #777777;
+  margin: 0;
+}
+.recent-blog-posts-section .blog .post .post-body .post-description .read-more:active {
+  color: #c0301c;
+}
+.recent-blog-posts-section .blog hr {
+  width: 90%;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 768px) {
+  .recent-blog-posts-section .blog .post .post-body .post-title {
+    grid-template-rows: minmax(33px, max-content) 33px;
+  }
+  .recent-blog-posts-section .blog .post .post-body .post-title .date-box {
+    grid-row: 1 / 3;
+  }
+  .recent-blog-posts-section .blog .post .post-body .post-title .title-text {
+    align-self: end;
+  }
+  .recent-blog-posts-section .blog .post .post-body .post-title .title-text:hover {
+    cursor: pointer;
+    color: #c0301c;
+  }
+  .recent-blog-posts-section .blog .post .post-body .post-title .created-by {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    align-self: start;
+  }
+  .recent-blog-posts-section .blog .post .post-body .post-title .created-by a:hover {
+    cursor: pointer;
+    color: #c0301c;
+  }
+  .recent-blog-posts-section .blog .post .post-body .post-description .read-more:hover {
+    cursor: pointer;
+    color: #c0301c;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .recent-blog-posts-section .blog .post .post-image-box {
+    display: block;
+    width: 42%;
+    align-self: center;
+  }
+  .recent-blog-posts-section .blog .post .post-image-box img {
+    display: block;
+    width: 100%;
+    margin: auto;
+  }
+  .recent-blog-posts-section .blog .post .post-body {
+    width: calc(100% - 42% - 4%);
   }
 }
 * {
