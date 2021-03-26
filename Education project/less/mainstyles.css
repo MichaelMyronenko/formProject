@@ -60,89 +60,73 @@ body {
   font-size: 24px;
   color: black;
 }
-.welcome-section {
-  background-color: #681d17;
-  width: 100%;
-  height: 100vh;
-}
-.welcome-section-body {
-  background-image: url('../img/bg_770.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #681d17;
-  height: calc(100vh - 55px);
-  padding-top: calc(calc(100vh - 55px) / 5);
-}
-.header {
+header {
+  position: fixed;
+  top: 0;
   height: 55px;
   max-height: 100px;
   background-color: #6d2728;
+  padding: 0 40px;
+  z-index: 100;
 }
-.header .logo {
+header .content-box .logo {
   visibility: hidden;
 }
-.header .logo a {
+header .content-box .logo a {
   font-family: 'Montserrat';
   font-weight: bold;
   font-size: 24px;
   color: white;
   text-decoration: none;
 }
-.menu {
+header .content-box .menu {
   font-family: 'Montserrat';
   font-weight: 500;
   font-size: 14px;
   color: white;
 }
-.menu-toggle {
-  opacity: 0;
-}
-.menu-toggle:checked ~ .menu-box {
-  visibility: visible;
-  right: 0;
-}
-.menu-toggle:checked ~ .menu-btn > span {
-  transform: rotate(45deg);
-}
-.menu-toggle:checked ~ .menu-btn > span::before {
-  top: 0;
-  transform: rotate(0deg);
-}
-.menu-toggle:checked ~ .menu-btn > span::after {
-  top: 0;
-  transform: rotate(90deg);
-}
-.menu-btn {
+header .content-box .menu .menu-button {
   display: flex;
   align-items: center;
   position: absolute;
-  top: 15px;
-  right: 25px;
+  top: 50%;
+  right: 20px;
+  transform: translate(0, -50%);
   width: 26px;
   height: 26px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 101;
 }
-.menu-btn > span,
-.menu-btn > span::before,
-.menu-btn > span:after {
+header .content-box .menu .menu-button > span,
+header .content-box .menu .menu-button > span::before,
+header .content-box .menu .menu-button > span::after {
   display: block;
   position: absolute;
   width: 100%;
   height: 2px;
   background-color: white;
-  transition-duration: 0.25s;
+  transition-duration: 0.3s;
 }
-.menu-btn > span::before {
+header .content-box .menu .menu-button > span::before {
   content: '';
   top: -8px;
 }
-.menu-btn > span::after {
+header .content-box .menu .menu-button > span::after {
   content: '';
   top: 8px;
 }
-.menu-box {
+header .content-box .menu .menu-button-clicked > span {
+  transform: rotate(45deg);
+}
+header .content-box .menu .menu-button-clicked > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+header .content-box .menu .menu-button-clicked > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+header .content-box .menu .menu-box {
   overflow: hidden;
   display: block;
   position: fixed;
@@ -155,15 +139,15 @@ body {
   background-color: #6d2728;
   transition-duration: 0.25s;
 }
-.menu-box hr {
+header .content-box .menu .menu-box hr {
   margin-top: -25px;
   margin-bottom: 40px;
   border-top: 1px solid white;
 }
-.menu-box ul {
+header .content-box .menu .menu-box ul {
   list-style: none;
 }
-.menu-item {
+header .content-box .menu .menu-box ul .menu-item {
   display: block;
   padding: 12px 24px;
   text-decoration: none;
@@ -172,73 +156,32 @@ body {
   font-size: 24px;
   color: white;
 }
-.menu-item:active {
+header .content-box .menu .menu-box ul .menu-item:active {
   color: #660000;
   background-color: white;
 }
-.greeting {
-  text-align: center;
-  color: white;
-  margin: 0 15px;
-}
-.greeting h1 {
-  font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 38px;
-  color: white;
-}
-.greeting h4 {
-  font-family: 'Roboto Slab';
-  font-weight: normal;
-  font-size: 16px;
-  color: white;
-  margin-top: 55px;
-}
-.button {
-  font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 16px;
-  color: white;
-  display: block;
-  text-align: center;
-  margin: 60px auto;
-  background-color: transparent;
-  border: 2px solid white;
-  padding: 15px 35px;
-}
-.button:active {
-  color: #660000;
-  background-color: white;
-}
-.button:focus {
-  outline: none;
+header .content-box .menu .menu-box-open {
+  visibility: visible;
+  right: 0;
 }
 @media only screen and (min-width: 768px) {
-  .menu-btn {
-    display: none;
-  }
-  .menu-toggle {
-    display: none;
-  }
-  .menu-item {
-    font-family: 'Montserrat';
-    font-weight: 500;
-    font-size: 14px;
-    color: white;
-    float: left;
-    padding: 5px 3px;
-    text-decoration: none;
-    margin-right: 4%;
-  }
-  .menu-item:hover {
-    border-bottom: 2px solid white;
-  }
-  .menu-item:active {
-    border-top: 2px solid white;
+  header {
+    height: 100px;
     background-color: transparent;
-    color: white;
+    position: absolute;
   }
-  .menu-box {
+  header .content-box {
+    display: flex;
+  }
+  header .content-box .logo {
+    visibility: visible;
+    text-align: left;
+    margin: 40px 0 0 0;
+  }
+  header .content-box .menu .menu-button {
+    display: none;
+  }
+  header .content-box .menu .menu-box {
     position: static;
     visibility: visible;
     right: 0;
@@ -248,13 +191,100 @@ body {
     margin: 40px 0 0 auto;
     max-width: 530px;
   }
-  .menu-box ul {
+  header .content-box .menu .menu-box ul {
     display: flex;
     justify-content: space-between;
   }
-  .menu-box hr {
+  header .content-box .menu .menu-box ul .menu-item {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    color: white;
+    float: left;
+    padding: 5px 3px;
+    text-decoration: none;
+    margin-right: 4%;
+  }
+  header .content-box .menu .menu-box ul .menu-item:hover {
+    border-bottom: 2px solid white;
+  }
+  header .content-box .menu .menu-box ul .menu-item:active {
+    border-top: 2px solid white;
+    background-color: transparent;
+    color: white;
+  }
+  header .content-box .menu .menu-box hr {
     display: none;
   }
+}
+@media only screen and (min-width: 1024px) {
+  header .content-box .menu .menu-box ul {
+    width: 530px;
+    float: right;
+  }
+}
+.body-scroll-locked {
+  overflow: hidden;
+}
+.welcome-section {
+  background-color: #681d17;
+  width: 100%;
+  height: 100vh;
+  margin-top: 55px;
+}
+.welcome-section-body {
+  background-image: url('../img/bg_770.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #681d17;
+  height: calc(100vh - 55px);
+  padding-top: calc(calc(100vh - 55px) / 5);
+}
+.welcome-section-body .greeting {
+  text-align: center;
+  color: white;
+  margin: 0 15px;
+}
+.welcome-section-body .greeting .button {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 15px 35px;
+  transition-duration: 0.25s;
+  margin-top: 60px;
+}
+.welcome-section-body .greeting .button:active {
+  color: #990000;
+  background-color: white;
+}
+.welcome-section-body .greeting .button:hover {
+  color: #990000;
+  background-color: white;
+}
+.welcome-section-body .greeting .button:focus {
+  outline: none;
+}
+.welcome-section-body .greeting h1 {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 38px;
+  color: white;
+}
+.welcome-section-body .greeting h4 {
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 16px;
+  color: white;
+  margin-top: 55px;
+}
+@media only screen and (min-width: 768px) {
   .welcome-section {
     background-image: url('../img/bg.jpg');
     background-position: top;
@@ -262,12 +292,13 @@ body {
     background-size: cover;
     height: 100vh;
     padding: 0 40px;
+    margin: 0;
   }
   .welcome-section-body {
     background-image: none;
     background-color: transparent;
-    height: calc(100vh - 100px);
-    padding-top: calc(calc(100vh - 100px) / 3);
+    height: calc(100vh - 55px);
+    padding-top: calc(calc(100vh - 55px) / 3);
   }
   .greeting h1 {
     font-family: 'Montserrat';
@@ -278,30 +309,6 @@ body {
   .greeting h4 {
     margin-top: 20px;
     font-size: 20px;
-  }
-  .button {
-    font-weight: 600;
-  }
-  .button:hover {
-    color: #660000;
-    background-color: white;
-    transition-duration: 0.25s;
-  }
-  .header {
-    display: flex;
-    height: 100px;
-    background-color: transparent;
-  }
-  .header .logo {
-    visibility: visible;
-    text-align: left;
-    margin: 40px 0 0 0;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  .menu-box ul {
-    width: 530px;
-    float: right;
   }
 }
 .services-section {
@@ -822,11 +829,31 @@ body {
   color: white;
 }
 .get-in-touch-link-section .link-background div .button {
-  margin: 0;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 16px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 15px 35px;
+  transition-duration: 0.25s;
   font-family: 'Roboto Slab';
   font-weight: normal;
   font-size: 18px;
   color: white;
+}
+.get-in-touch-link-section .link-background div .button:active {
+  color: #d3927c;
+  background-color: white;
+}
+.get-in-touch-link-section .link-background div .button:hover {
+  color: #d3927c;
+  background-color: white;
+}
+.get-in-touch-link-section .link-background div .button:focus {
+  outline: none;
 }
 .get-in-touch-link-section .link-background div .button:active {
   color: #d3927c;
@@ -1299,8 +1326,14 @@ body {
   font-size: 12px;
   color: #555555;
   letter-spacing: 0.6px;
+  transition-duration: 0.25s;
 }
 .get-in-touch-section-body .form-wrapper form div .submit-form:active {
+  background: #c0301c;
+  color: white;
+  border-color: #c0301c;
+}
+.get-in-touch-section-body .form-wrapper form div .submit-form:hover {
   background: #c0301c;
   color: white;
   border-color: #c0301c;
@@ -1308,11 +1341,6 @@ body {
 @media only screen and (min-width: 768px) {
   .get-in-touch-section-body .contacts {
     flex-direction: row;
-  }
-  .get-in-touch-section-body .form-wrapper form div .submit-form:hover {
-    background: #c0301c;
-    color: white;
-    border-color: #c0301c;
   }
 }
 @media only screen and (min-width: 1024px) {

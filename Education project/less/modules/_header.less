@@ -1,0 +1,200 @@
+@mobile-menu-bg-color: #6d2728;
+@welcome-section-bg-color: #681d17;
+
+header {
+  position: fixed;
+  top: 0;
+  height: @header-height;
+  max-height: @header-max-height;
+  background-color: @mobile-menu-bg-color;
+  padding: 0 40px;
+  z-index: 100;
+
+  .content-box {
+    .logo {
+      visibility: hidden;
+
+      a {
+        .font(@header-font, 24px, bold, white);
+        text-decoration: none;
+      }
+    }
+
+    .menu {
+      .font(@header-font, 14px, 500, white);
+
+      .menu-button {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translate(0, -50%);
+
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        z-index: 101;
+
+        > span, & > span::before, & > span::after {
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          background-color: white;
+          transition-duration: @more-slowly-transition-duration;
+        }
+
+        > span {
+          &::before {
+            content: '';
+            top: -8px;
+          }
+
+          &::after {
+            content: '';
+            top: 8px;
+          }
+        }
+
+        &-clicked > span {
+          transform: rotate(45deg);
+
+          &::before {
+            top: 0;
+            transform: rotate(0deg);
+          }
+
+          &::after {
+            top: 0;
+            transform: rotate(90deg);
+          }
+        }
+      }
+
+      .menu-box {
+        overflow: hidden;
+        display: block;
+        position: fixed;
+        visibility: hidden;
+        right: -100%;
+        top: 0;
+        height: 100%;
+        margin: 0;
+        padding: 80px 0;
+        background-color: @mobile-menu-bg-color;
+        transition-duration: @normal-transition-duration;
+
+        hr {
+          margin-top: -25px;
+          margin-bottom: 40px;
+          border-top: 1px solid white;
+        }
+
+        ul {
+          list-style: none;
+
+          .menu-item {
+            display: block;
+            padding: 12px 24px;
+            text-decoration: none;
+            .font(@header-font, 24px, 500, white);
+
+            &:active {
+              color: darken(red, 30%);
+              background-color: white;
+            }
+          }
+        }
+
+        &-open {
+          visibility: visible;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  @header-height: @header-max-height;
+
+  header {
+    height: @header-height;
+    background-color: transparent;
+    position: absolute;
+
+    .content-box {
+      display: flex;
+
+      .logo {
+        visibility: visible;
+        text-align: left;
+        margin: 40px 0 0 0;
+      }
+
+      .menu {
+        .menu-button {
+          display: none;
+        }
+
+        .menu-box {
+          position: static;
+          visibility: visible;
+          right: 0;
+          transition-duration: 0s;
+          background-color: transparent;
+          padding: 0;
+          margin: 40px 0 0 auto;
+          max-width: 530px;
+
+          ul {
+            display: flex;
+            justify-content: space-between;
+
+            .menu-item {
+              .font(@header-font, 14px, 500, white);
+              float: left;
+              padding: 5px 3px;
+              text-decoration: none;
+              margin-right: 4%;
+
+              &:hover {
+                border-bottom: 2px solid white;
+              }
+
+              &:active {
+                border-top: 2px solid white;
+                background-color: transparent;
+                color: white;
+              }
+            }
+          }
+
+          hr {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  header {
+    .content-box {
+      .menu {
+        .menu-box {
+          ul {
+            width: 530px;
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+.body-scroll-locked {
+  overflow: hidden;
+}

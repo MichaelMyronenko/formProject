@@ -1,0 +1,76 @@
+@welcome-section-mobile-bg-img: '../img/bg_770.jpg';
+@welcome-section-bg-img: '../img/bg.jpg';
+
+@welcome-section-height: 100vh;
+@welcome-section-body-height: calc(@welcome-section-height - @header-height);
+@welcome-padding-top: calc(@welcome-section-body-height / 5);
+
+.welcome-section {
+  background-color: @welcome-section-bg-color;
+  width: 100%;
+  height: @welcome-section-height;;
+  margin-top: @header-height;
+
+  &-body {
+    background-image: url(@welcome-section-mobile-bg-img);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: @welcome-section-bg-color;
+    height: @welcome-section-body-height;
+    padding-top: @welcome-padding-top;
+
+    .greeting {
+      text-align: center;
+      color: white;
+      margin: 0 15px;
+
+      .button {
+        .button(darken(red, 20%), white);
+        margin-top: 60px;
+      }
+
+      h1 {
+        .font(@header-font, 38px, 500, white)
+      }
+
+      h4 {
+        .font (@regular-font, 16px, normal, white);
+        margin-top: 55px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  @welcome-padding-top: calc(@welcome-section-body-height / 3);
+
+  .welcome-section {
+    background-image: url(@welcome-section-bg-img);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: @welcome-section-height;
+    padding: 0 40px;
+    margin: 0;
+
+    &-body {
+      background-image: none;
+      background-color: transparent;
+      height: @welcome-section-body-height;
+      padding-top: @welcome-padding-top;
+    }
+  }
+
+  .greeting {
+    h1 {
+      .font (@header-font, 48px, 600, white);
+    }
+
+    h4 {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  }
+}
