@@ -160,10 +160,6 @@ header .content-box .menu .menu-box ul .menu-item:active {
   color: #660000;
   background-color: white;
 }
-header .content-box .menu .menu-box ul .menu-item:hover {
-  color: #660000;
-  background-color: white;
-}
 header .content-box .menu .menu-box-open {
   visibility: visible;
   right: 0;
@@ -242,8 +238,8 @@ header .content-box .menu .menu-box-open {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #681d17;
-  height: calc(100vh - 55px);
-  padding-top: calc(calc(100vh - 55px) / 5);
+  height: calc(100vh);
+  padding-top: calc(calc(100vh) / 5);
 }
 .welcome-section-body .greeting {
   text-align: center;
@@ -1292,6 +1288,7 @@ header .content-box .menu .menu-box-open {
   grid-row: 5 / 7;
   padding: 15px;
   resize: none;
+  border: 1px solid #555555;
 }
 .get-in-touch-section-body .form-wrapper form textarea::placeholder {
   font-family: 'Roboto Slab';

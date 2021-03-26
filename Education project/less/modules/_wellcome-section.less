@@ -2,7 +2,7 @@
 @welcome-section-bg-img: '../img/bg.jpg';
 
 @welcome-section-height: 100vh;
-@welcome-section-body-height: calc(@welcome-section-height - @header-height);
+@welcome-section-body-height: calc(@welcome-section-height);
 @welcome-padding-top: calc(@welcome-section-body-height / 5);
 
 .welcome-section {
@@ -44,6 +44,7 @@
 
 @media only screen and (min-width: 768px) {
 
+  @welcome-section-body-height: calc(@welcome-section-height - @header-height);
   @welcome-padding-top: calc(@welcome-section-body-height / 3);
 
   .welcome-section {
