@@ -794,7 +794,6 @@ header .content-box .menu .menu-box-open {
   height: 369px;
   position: relative;
   overflow: hidden;
-  background: #c0301c;
 }
 .get-in-touch-link-section .link-background img {
   position: relative;
@@ -803,7 +802,6 @@ header .content-box .menu .menu-box-open {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.5;
 }
 .get-in-touch-link-section .link-background div {
   position: absolute;
