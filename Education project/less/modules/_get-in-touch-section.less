@@ -103,8 +103,15 @@
             background: none;
             .font(@regular-font, 12px, normal, @h-text-color);
             letter-spacing: 0.6px;
+            transition-duration: @normal-transition-duration;
 
             &:active {
+              background: @arrows-hover-background-color;
+              color: white;
+              border-color: @arrows-hover-background-color;
+            }
+
+            &:hover {
               background: @arrows-hover-background-color;
               color: white;
               border-color: @arrows-hover-background-color;
@@ -121,21 +128,6 @@
     &-body {
       .contacts {
         flex-direction: row;
-
-      }
-
-      .form-wrapper {
-        form {
-          div {
-            .submit-form {
-              &:hover {
-                background: @arrows-hover-background-color;
-                color: white;
-                border-color: @arrows-hover-background-color;
-              }
-            }
-          }
-        }
       }
     }
   }
