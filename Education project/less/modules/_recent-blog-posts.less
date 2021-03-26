@@ -57,6 +57,11 @@
             &:active {
               color: @arrows-hover-background-color;
             }
+
+            &:hover {
+              cursor: pointer;
+              color: @arrows-hover-background-color;
+            }
           }
 
           .created-by {
@@ -71,6 +76,11 @@
               color: inherit;
 
               &:active {
+                color: @arrows-hover-background-color;
+              }
+
+              &:hover {
+                cursor: pointer;
                 color: @arrows-hover-background-color;
               }
             }
@@ -90,6 +100,11 @@
             margin: 0;
 
             &:active {
+              color: @arrows-hover-background-color;
+            }
+
+            &:hover {
+              cursor: pointer;
               color: @arrows-hover-background-color;
             }
           }
@@ -120,33 +135,12 @@
 
             .title-text {
               align-self: end;
-
-              &:hover {
-                cursor: pointer;
-                color: @arrows-hover-background-color;
-              }
             }
 
             .created-by {
               grid-row: 2 / 3;
               grid-column: 2 / 3;
               align-self: start;
-
-              a {
-                &:hover {
-                  cursor: pointer;
-                  color: @arrows-hover-background-color;
-                }
-              }
-            }
-          }
-
-          .post-description {
-            .read-more {
-              &:hover {
-                cursor: pointer;
-                color: @arrows-hover-background-color;
-              }
             }
           }
         }

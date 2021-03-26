@@ -160,6 +160,10 @@ header .content-box .menu .menu-box ul .menu-item:active {
   color: #660000;
   background-color: white;
 }
+header .content-box .menu .menu-box ul .menu-item:hover {
+  color: #660000;
+  background-color: white;
+}
 header .content-box .menu .menu-box-open {
   visibility: visible;
   right: 0;
@@ -354,10 +358,16 @@ header .content-box .menu .menu-box-open {
 .card-icon:active {
   background-color: #c0301c;
 }
+.card-icon:hover {
+  background-color: #c0301c;
+}
 .card:nth-child(1) > .card-icon {
   background-position: 21px 19px;
 }
 .card:nth-child(1) > .card-icon:active {
+  background-position: 21px -88px;
+}
+.card:nth-child(1) > .card-icon:hover {
   background-position: 21px -88px;
 }
 .card:nth-child(2) > .card-icon {
@@ -366,10 +376,16 @@ header .content-box .menu .menu-box-open {
 .card:nth-child(2) > .card-icon:active {
   background-position: -94px -88px;
 }
+.card:nth-child(2) > .card-icon:hover {
+  background-position: -94px -88px;
+}
 .card:nth-child(3) > .card-icon {
   background-position: -210px 19px;
 }
 .card:nth-child(3) > .card-icon:active {
+  background-position: -210px -88px;
+}
+.card:nth-child(3) > .card-icon:hover {
   background-position: -210px -88px;
 }
 @media only screen and (min-width: 768px) {
@@ -378,24 +394,6 @@ header .content-box .menu .menu-box-open {
   }
   .card .card-content h5 {
     margin: 25px 0 30px;
-  }
-  .card .card-icon:hover {
-    background-color: #c0301c;
-  }
-  .card:nth-child(1) > .card-icon:hover {
-    background-position: 21px -88px;
-  }
-  .card:nth-child(2) {
-    order: 3;
-  }
-  .card:nth-child(2) > .card-icon:hover {
-    background-position: -94px -88px;
-  }
-  .card:nth-child(3) {
-    order: 2;
-  }
-  .card:nth-child(3) > .card-icon:hover {
-    background-position: -210px -88px;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -645,6 +643,9 @@ header .content-box .menu .menu-box-open {
 .about-us-section .about-us-content .stuff-slider [class*="arrow-"]:active {
   background-color: #c0301c;
 }
+.about-us-section .about-us-content .stuff-slider [class*="arrow-"]:hover {
+  background-color: #c0301c;
+}
 @media only screen and (min-width: 500px) {
   .about-us-section .about-us-content .stuff-slider .slider-item {
     width: 45%;
@@ -666,9 +667,6 @@ header .content-box .menu .menu-box-open {
   }
   .about-us-section .about-us-content .stuff-slider {
     justify-content: space-between;
-  }
-  .about-us-section .about-us-content .stuff-slider [class*="arrow-"]:hover {
-    background-color: #c0301c;
   }
   .about-us-section .about-us-content .stuff-slider .slider-item {
     width: 31%;
@@ -855,15 +853,9 @@ header .content-box .menu .menu-box-open {
 .get-in-touch-link-section .link-background div .button:focus {
   outline: none;
 }
-.get-in-touch-link-section .link-background div .button:active {
-  color: #d3927c;
-}
 @media only screen and (min-width: 768px) {
   .get-in-touch-link-section .link-background div h3 {
     width: 460px;
-  }
-  .get-in-touch-link-section .link-background div .button:hover {
-    color: #d3927c;
   }
 }
 .recent-blog-posts-section {
@@ -924,6 +916,10 @@ header .content-box .menu .menu-box-open {
 .recent-blog-posts-section .blog .post .post-body .post-title .title-text:active {
   color: #c0301c;
 }
+.recent-blog-posts-section .blog .post .post-body .post-title .title-text:hover {
+  cursor: pointer;
+  color: #c0301c;
+}
 .recent-blog-posts-section .blog .post .post-body .post-title .created-by {
   grid-row: 2 / 3;
   grid-column: 1 / 3;
@@ -939,6 +935,10 @@ header .content-box .menu .menu-box-open {
   color: inherit;
 }
 .recent-blog-posts-section .blog .post .post-body .post-title .created-by a:active {
+  color: #c0301c;
+}
+.recent-blog-posts-section .blog .post .post-body .post-title .created-by a:hover {
+  cursor: pointer;
   color: #c0301c;
 }
 .recent-blog-posts-section .blog .post .post-body .post-description {
@@ -961,6 +961,10 @@ header .content-box .menu .menu-box-open {
 .recent-blog-posts-section .blog .post .post-body .post-description .read-more:active {
   color: #c0301c;
 }
+.recent-blog-posts-section .blog .post .post-body .post-description .read-more:hover {
+  cursor: pointer;
+  color: #c0301c;
+}
 .recent-blog-posts-section .blog hr {
   width: 90%;
   margin: 0 auto;
@@ -975,22 +979,10 @@ header .content-box .menu .menu-box-open {
   .recent-blog-posts-section .blog .post .post-body .post-title .title-text {
     align-self: end;
   }
-  .recent-blog-posts-section .blog .post .post-body .post-title .title-text:hover {
-    cursor: pointer;
-    color: #c0301c;
-  }
   .recent-blog-posts-section .blog .post .post-body .post-title .created-by {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     align-self: start;
-  }
-  .recent-blog-posts-section .blog .post .post-body .post-title .created-by a:hover {
-    cursor: pointer;
-    color: #c0301c;
-  }
-  .recent-blog-posts-section .blog .post .post-body .post-description .read-more:hover {
-    cursor: pointer;
-    color: #c0301c;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -1027,18 +1019,27 @@ header .content-box .menu .menu-box-open {
 .partners-section .content-box .partners-logos .partner-logo:nth-child(1):active {
   background: url("../img/logo-1.png") no-repeat center;
 }
+.partners-section .content-box .partners-logos .partner-logo:nth-child(1):hover {
+  background: url("../img/logo_4.jpg") no-repeat center;
+}
 .partners-section .content-box .partners-logos .partner-logo:nth-child(2) {
   background: url("../img/logo2.jpg") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(2):active {
   background: url("../img/logo-2.png") no-repeat center;
 }
+.partners-section .content-box .partners-logos .partner-logo:nth-child(2):hover {
+  background: url("../img/logo_4.jpg") no-repeat center;
+}
 .partners-section .content-box .partners-logos .partner-logo:nth-child(3) {
   display: none;
   background: url("../img/logo3.jpg") no-repeat center;
 }
-.partners-section .content-box .partners-logos .partner-logo:nth-child(3):active {
+.partners-section .content-box .partners-logos .partner-logo:nth-child(3):hover {
   background: url("../img/logo-3.png") no-repeat center;
+}
+.partners-section .content-box .partners-logos .partner-logo:nth-child(3):active {
+  background: url("../img/logo_4.jpg") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(4) {
   display: none;
@@ -1047,12 +1048,18 @@ header .content-box .menu .menu-box-open {
 .partners-section .content-box .partners-logos .partner-logo:nth-child(4):active {
   background: url("../img/logo_4.jpg") no-repeat center;
 }
+.partners-section .content-box .partners-logos .partner-logo:nth-child(4):hover {
+  background: url("../img/logo_4.jpg") no-repeat center;
+}
 .partners-section .content-box .partners-logos .partner-logo:nth-child(5) {
   display: none;
   background: url("../img/logo5.jpg") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(5):active {
   background: url("../img/logo_5.jpg") no-repeat center;
+}
+.partners-section .content-box .partners-logos .partner-logo:nth-child(5):hover {
+  background: url("../img/logo_4.jpg") no-repeat center;
 }
 .partners-section .content-box .partners-text {
   display: none;
@@ -1152,23 +1159,8 @@ header .content-box .menu .menu-box-open {
     width: 160px;
     height: 52px;
   }
-  .partners-section .content-box .partners-logos .partner-logo:nth-child(1):hover {
-    background: url("../img/logo-1.png") no-repeat center;
-  }
-  .partners-section .content-box .partners-logos .partner-logo:nth-child(2):hover {
-    background: url("../img/logo-2.png") no-repeat center;
-  }
   .partners-section .content-box .partners-logos .partner-logo:nth-child(3) {
     display: block;
-  }
-  .partners-section .content-box .partners-logos .partner-logo:nth-child(3):hover {
-    background: url("../img/logo-3.png") no-repeat center;
-  }
-  .partners-section .content-box .partners-logos .partner-logo:nth-child(4):hover {
-    background: url("../img/logo-4.png") no-repeat center;
-  }
-  .partners-section .content-box .partners-logos .partner-logo:nth-child(5):hover {
-    background: url("../img/logo-5.png") no-repeat center;
   }
   .partners-section .content-box .partners-text {
     display: block;

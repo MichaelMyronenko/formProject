@@ -47,6 +47,10 @@
     &:active {
       background-color: @card-icon-red-color;
     }
+
+    &:hover {
+      background-color: @card-icon-red-color;
+    }
   }
 
   &:nth-child(1) {
@@ -54,6 +58,10 @@
       background-position: 21px 19px;
 
       &:active {
+        background-position: 21px -88px;
+      }
+
+      &:hover {
         background-position: 21px -88px;
       }
     }
@@ -67,6 +75,10 @@
       &:active {
         background-position: -94px -88px;
       }
+
+      &:hover {
+        background-position: -94px -88px;
+      }
     }
   }
 
@@ -75,6 +87,10 @@
       background-position: -210px 19px;
 
       &:active {
+        background-position: -210px -88px;
+      }
+
+      &:hover {
         background-position: -210px -88px;
       }
     }
@@ -89,36 +105,6 @@
     .card-content {
       h5 {
         margin: 25px 0 30px;
-      }
-    }
-
-    .card-icon:hover {
-      background-color: @card-icon-red-color;
-    }
-
-    &:nth-child(1) {
-      & > .card-icon {
-        &:hover {
-          background-position: 21px -88px;
-        }
-      }
-    }
-
-    &:nth-child(2) {
-      order: 3;
-      & > .card-icon {
-        &:hover {
-          background-position: -94px -88px;
-        }
-      }
-    }
-
-    &:nth-child(3) {
-      order: 2;
-      & > .card-icon {
-        &:hover {
-          background-position: -210px -88px;
-        }
       }
     }
   }
