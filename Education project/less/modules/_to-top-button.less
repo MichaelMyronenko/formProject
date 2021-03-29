@@ -1,0 +1,31 @@
+@to-top-icon-url: "../img/icon_top.png";
+
+.to-top-button {
+  position: fixed;
+  z-index: 99;
+  bottom: 40px;
+  right: 20px;
+  opacity: 0;
+  visibility: hidden;
+  height: 50px;
+  width: 50px;
+  background: url(@to-top-icon-url) no-repeat center;
+  border: none;
+  background-size: cover;;
+  text-transform: uppercase;
+  transition-duration: @normal-transition-duration;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.show-top-button {
+    opacity: 0.5;
+    visibility: visible;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+

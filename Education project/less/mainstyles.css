@@ -61,7 +61,7 @@ body {
   color: black;
 }
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   height: 55px;
   max-height: 100px;
@@ -835,6 +835,7 @@ header .content-box .menu .menu-box-open {
   font-weight: normal;
   font-size: 18px;
   color: white;
+  text-decoration: none;
 }
 .get-in-touch-link-section .link-background div .button:active {
   color: #d3927c;
@@ -1006,6 +1007,7 @@ header .content-box .menu .menu-box-open {
 .partners-section .content-box .partners-logos .partner-logo {
   width: 160px;
   height: 52px;
+  transition-duration: 0.3s;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(1) {
   background: url("../img/logo1.jpg") no-repeat center;
@@ -1014,7 +1016,7 @@ header .content-box .menu .menu-box-open {
   background: url("../img/logo-1.png") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(1):hover {
-  background: url("../img/logo_4.jpg") no-repeat center;
+  background: url("../img/logo-1.png") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(2) {
   background: url("../img/logo2.jpg") no-repeat center;
@@ -1023,7 +1025,7 @@ header .content-box .menu .menu-box-open {
   background: url("../img/logo-2.png") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(2):hover {
-  background: url("../img/logo_4.jpg") no-repeat center;
+  background: url("../img/logo-2.png") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(3) {
   display: none;
@@ -1033,27 +1035,27 @@ header .content-box .menu .menu-box-open {
   background: url("../img/logo-3.png") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(3):active {
-  background: url("../img/logo_4.jpg") no-repeat center;
+  background: url("../img/logo-3.png") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(4) {
   display: none;
   background: url("../img/logo4.jpg") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(4):active {
-  background: url("../img/logo_4.jpg") no-repeat center;
+  background: url("../img/logo-4.png") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(4):hover {
-  background: url("../img/logo_4.jpg") no-repeat center;
+  background: url("../img/logo-4.png") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(5) {
   display: none;
   background: url("../img/logo5.jpg") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(5):active {
-  background: url("../img/logo_5.jpg") no-repeat center;
+  background: url("../img/logo-5.png") no-repeat center;
 }
 .partners-section .content-box .partners-logos .partner-logo:nth-child(5):hover {
-  background: url("../img/logo_4.jpg") no-repeat center;
+  background: url("../img/logo-5.png") no-repeat center;
 }
 .partners-section .content-box .partners-text {
   display: none;
@@ -1354,6 +1356,70 @@ header .content-box .menu .menu-box-open {
   .get-in-touch-section-body .form-wrapper form div {
     grid-row: 5 / 6;
   }
+}
+.to-top-button {
+  position: fixed;
+  z-index: 99;
+  bottom: 40px;
+  right: 20px;
+  opacity: 0;
+  visibility: hidden;
+  height: 50px;
+  width: 50px;
+  background: url("../img/icon_top.png") no-repeat center;
+  border: none;
+  background-size: cover;
+  text-transform: uppercase;
+  transition-duration: 0.25s;
+}
+.to-top-button:focus {
+  outline: none;
+}
+.to-top-button.show-top-button {
+  opacity: 0.5;
+  visibility: visible;
+}
+.to-top-button.show-top-button:hover {
+  opacity: 1;
+}
+footer {
+  height: 310px;
+  background: #c0301c;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+footer .footer-icons {
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer-icons .footer-icon {
+  height: 35px;
+  width: 35px;
+  margin: 0 7px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: url("../img/icons_3.png") no-repeat 7.5px;
+}
+footer .footer-icons .footer-icon:hover {
+  background-position: -22.5px 10px;
+  background-color: white;
+}
+footer hr {
+  display: block;
+  margin: 30px auto;
+  height: 2px;
+  width: 50px;
+  background: white;
+}
+footer small.copyright {
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  font-size: 12px;
+  color: white;
+  text-transform: uppercase;
 }
 * {
   margin: 0;

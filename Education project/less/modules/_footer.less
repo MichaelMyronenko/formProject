@@ -1,0 +1,42 @@
+@footer-icon-url: "../img/icons_3.png";
+
+footer {
+  height: 310px;
+  background: @arrows-hover-background-color;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .footer-icons {
+    display: flex;
+    justify-content: space-between;
+    .footer-icon {
+      height: 35px;
+      width: 35px;
+      margin: 0 7px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background: url(@footer-icon-url) no-repeat 7.5px;
+
+      &:hover {
+        background-position: -22.5px 10px;
+        background-color: white;
+      }
+    }
+  }
+
+  hr {
+    display: block;
+    margin: 30px auto;
+    height: 2px;
+    width: 50px;
+    background: white;
+  }
+
+  small.copyright {
+    .font(@regular-font, 12px, normal, white);
+    text-transform: uppercase;
+  }
+}
