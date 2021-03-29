@@ -259,6 +259,7 @@ header .content-box .menu .menu-box-open {
   padding: 15px 35px;
   transition-duration: 0.25s;
   margin-top: 60px;
+  width: 200px;
 }
 .welcome-section-body .greeting .button:active {
   color: #990000;
