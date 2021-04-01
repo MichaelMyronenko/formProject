@@ -1,18 +1,21 @@
 $(function () {
-    // if (window.matchMedia('(min-width: 1024px)').matches) {
-    //     $('.carousel').myCarousel({visibleElements: 4, infinityMode: true, autoSwipe: true});
-    // } else if (window.matchMedia('(min-width: 768px)').matches) {
-        $('.carousel').myCarousel({visibleElements: 3, infinityMode: true, autoSwipe: true});
-    // } else {
-    //     $('.carousel').myCarousel({visibleElements: 1, infinityMode: true});
-    // }
+        $('.carousel').myCarousel({visibleElements: [{minScreenWidth: 768, visibleElems: 3},
+                {minScreenWidth: 1024, visibleElems: 4},
+                {minScreenWidth: 500, visibleElems: 2},
+                {minScreenWidth: 0, visibleElems: 1}],
+            infinityMode: true,
+            autoSwipe: true});
 });
 
 (function ($) {
     $.fn.myCarousel = function (options) {
+        let sizeSet = {
+            minScreenWidth : 768,
+            visibleElems : 1
+        };
 
         let params = $.extend({
-            visibleElements: 2,
+            visibleElements: [sizeSet],
             swipeSlides: 1,
             animationSpeed: 500,
             infinityMode: false,
@@ -21,7 +24,8 @@ $(function () {
         }, options);
 
         return this.each(function () {
-            let visibleElements = params.visibleElements;
+            sortSizeSets();
+            let visibleElements = getVisibleElements();
             let swipeSlides = params.swipeSlides;
             let absoluteElementWidth, relativeElementWidth, rowWidth, spacing, numOfElements;
             let infinityMode = params.infinityMode;
@@ -31,6 +35,20 @@ $(function () {
             let rowSelector = $(carouselSelector.children(".slide-row"));
             let animationSpeed = params.animationSpeed;
             let slideshow, autoSwipeSpeed = params.autoSwipeSpeed;
+
+            firstInit();
+            setRowJustifyContent();
+
+            if (infinityMode && autoSwipes) {
+                moveSlidesAuto();
+                rowSelector.hover(
+                    function () {
+                        clearInterval(slideshow);
+                    },
+                    function () {
+                        moveSlidesAuto();
+                    });
+            }
 
             $('.button-prev').on('click', function () {
                 if (infinityMode) {
@@ -47,93 +65,98 @@ $(function () {
                     moveRight(animationSpeed);
                 }
             });
-            if (infinityMode && autoSwipes) {
-                moveSlidesAuto();
-                rowSelector.hover(
-                    function () {
-                        clearInterval(slideshow);
-                    },
-                    function () {
-                        moveSlidesAuto();
-                    });
-            }
 
-            initAbsoluteElementWidth();
-            initRelativeElementWidth();
+            $(window).resize(function () {
+                visibleElements = getVisibleElements();
+                absoluteElementWidth = getAbsoluteElementWidth();
+                spacing = getSpacing();
+                initPosition();
+                init();
+                setRowJustifyContent();
+            });
 
-            if (infinityMode) {
+            function addClones () {
                 for (let i = 1; i <= swipeSlides; i++) {
                     rowSelector.children(`.slider-item:nth-last-child(${((i * 2) - 1)})`).clone().prependTo(rowSelector);
                     rowSelector.children(`.slider-item:nth-child(${(i * 2)})`).clone().appendTo(rowSelector);
                 }
-                initPosition();
             }
-
-            initSizes();
 
             function initPosition() {
                 position = (-(absoluteElementWidth + spacing)) * swipeSlides;
                 rowSelector.css("left", `${position}%`);
             }
 
-            $(window).resize(function () {
-                if (window.matchMedia('(min-width: 1024px)').matches) {
-                    visibleElements = 4
-                    swipeSlides = swipeSlides > 4 ? 4 : swipeSlides;
-                } else if (window.matchMedia('(min-width: 768px)').matches) {
-                    visibleElements = 3
-                    swipeSlides = swipeSlides > 3 ? 3 : swipeSlides;
-                } else if (window.matchMedia('(min-width: 500px)').matches){
-                    visibleElements = 2
-                    swipeSlides = swipeSlides > 2 ? 2 : swipeSlides;
-                } else {
-                    visibleElements = 1
-                    swipeSlides = swipeSlides > 1 ? 1 : swipeSlides;
+            function firstInit() {
+                absoluteElementWidth = getAbsoluteElementWidth();
+                spacing = getSpacing();
+                if (infinityMode) {
+                    addClones();
+                    initPosition();
                 }
-                initAbsoluteElementWidth();
-                initRelativeElementWidth();
-                initPosition();
-                initSizes();
-            });
-
-            function initAbsoluteElementWidth() {
-                switch (visibleElements) {
-                    case (1):
-                        absoluteElementWidth = 90;
-                        rowSelector.css("justify-content", "space-around");
-                        break;
-                    case (2):
-                        absoluteElementWidth = 45;
-                        rowSelector.css("justify-content", "space-between");
-                        break;
-                    case (3):
-                        absoluteElementWidth = 31;
-                        rowSelector.css("justify-content", "space-between");
-                        break;
-                    case (4):
-                        absoluteElementWidth = 23;
-                        rowSelector.css("justify-content", "space-between");
-                        break;
-                    default:
-                        absoluteElementWidth = 15;
-                        break;
-                }
-            }
-
-            function initRelativeElementWidth() {
-                relativeElementWidth = absoluteElementWidth;
-                spacing = visibleElements === 1
-                    ? 100 - (relativeElementWidth)
-                    : (100 - (visibleElements * relativeElementWidth)) / (visibleElements - 1);
                 numOfElements = rowSelector.find(".slider-item").length;
-            }
-
-            function initSizes() {
                 rowWidth = calculateRowWidth();
                 relativeElementWidth = calculateElementWidth();
 
                 rowSelector.css("width", `${rowWidth}%`);
                 rowSelector.children(".slider-item").css("width", `${relativeElementWidth}%`);
+            }
+
+            function init() {
+                absoluteElementWidth = getAbsoluteElementWidth();
+                spacing = getSpacing();
+                numOfElements = rowSelector.find(".slider-item").length;
+                rowWidth = calculateRowWidth();
+                relativeElementWidth = calculateElementWidth();
+
+                rowSelector.css("width", `${rowWidth}%`);
+                rowSelector.children(".slider-item").css("width", `${relativeElementWidth}%`);
+            }
+
+            function setRowJustifyContent() {
+                if (visibleElements === 1) {
+                    rowSelector.css("justify-content", "space-around");
+                } else {
+                    rowSelector.css("justify-content", "space-between");
+                }
+            }
+
+            function sortSizeSets () {
+                params.visibleElements.sort(function (a, b) {
+                    if (a.minScreenWidth > b.minScreenWidth) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                });
+            }
+
+            function getVisibleElements() {
+                for (let i = 0; i < params.visibleElements.length; i++) {
+                    let minWidth = params.visibleElements[i].minScreenWidth;
+                    if (window.matchMedia(`(min-width: ${minWidth}px)`).matches) {
+                        return params.visibleElements[i].visibleElems;
+                    } else if (minWidth === 0) {
+                        return params.visibleElements[i].visibleElems;
+                    }
+                }
+                return 1;
+            }
+
+            function getAbsoluteElementWidth() {
+                let elementsWidthSum = 90;
+
+                if (visibleElements > 1) {
+                    return  elementsWidthSum / visibleElements;
+                } else {
+                    return elementsWidthSum;
+                }
+            }
+
+            function getSpacing() {
+                return visibleElements === 1
+                    ? 100 - (absoluteElementWidth)
+                    : (100 - (visibleElements * absoluteElementWidth)) / (visibleElements - 1);
             }
 
             function calculateRowWidth() {
