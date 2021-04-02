@@ -1,10 +1,22 @@
 $(function () {
-        $('.carousel').myCarousel({visibleElements: [{minScreenWidth: 768, visibleElems: 3},
-                {minScreenWidth: 1024, visibleElems: 4},
-                {minScreenWidth: 500, visibleElems: 2},
-                {minScreenWidth: 0, visibleElems: 1}],
-            infinityMode: true,
-            autoSwipe: true});
+    $('.carousel').myCarousel({
+        visibleElements: [{minScreenWidth: 768, visibleElems: 2},
+            {minScreenWidth: 1024, visibleElems: 3},
+            {minScreenWidth: 500, visibleElems: 2},
+            {minScreenWidth: 0, visibleElems: 1}],
+        swipeSlides: 1,
+        infinityMode: true,
+        autoSwipe: true
+    });
+    $('.second-carousel').myCarousel({
+        visibleElements: [{minScreenWidth: 768, visibleElems: 3},
+            {minScreenWidth: 1024, visibleElems: 5},
+            {minScreenWidth: 500, visibleElems: 2},
+            {minScreenWidth: 0, visibleElems: 1}],
+        infinityMode: false,
+        swipeSlides: 1,
+        autoSwipe: false
+    });
 });
 
 (function ($) {
