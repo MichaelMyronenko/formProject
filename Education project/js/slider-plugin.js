@@ -226,7 +226,7 @@ $(function () {
                     position = Math.min(position, 0);
                     numOfSwipe = oldPosition === position ? numOfSwipe : numOfSwipe - 1;
                     $(this).dequeue();
-                }).animate({left: `${position}%`}, {duration: speed});
+                }).animate({left: `${position}%`}, {duration: speed}).dequeue();
             }
 
             function moveRight(speed) {
@@ -236,7 +236,7 @@ $(function () {
                     position = Math.max(position, getLastPosition());
                     numOfSwipe = oldPosition === position ? numOfSwipe : numOfSwipe + 1;
                     $(this).dequeue();
-                }).animate({left: `${position}%`}, {duration: speed});
+                }).animate({left: `${position}%`}, {duration: speed}).dequeue();
             }
 
             function moveOnPoint(swipe) {
