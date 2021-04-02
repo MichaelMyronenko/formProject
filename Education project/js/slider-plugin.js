@@ -10,8 +10,8 @@ $(function () {
 (function ($) {
     $.fn.myCarousel = function (options) {
         let sizeSet = {
-            minScreenWidth : 768,
-            visibleElems : 1
+            minScreenWidth: 768,
+            visibleElems: 1
         };
 
         let params = $.extend({
@@ -26,6 +26,7 @@ $(function () {
         return this.each(function () {
             sortSizeSets();
             let visibleElements = getVisibleElements();
+            let numOfSwipe = 0;
             let swipeSlides = params.swipeSlides;
             let absoluteElementWidth, relativeElementWidth, rowWidth, spacing, numOfElements;
             let infinityMode = params.infinityMode;
@@ -66,16 +67,23 @@ $(function () {
                 }
             });
 
+            carouselSelector.on('click', " .num-of-slide", function () {
+                moveOnPoint($(this));
+            });
+
             $(window).resize(function () {
                 visibleElements = getVisibleElements();
                 absoluteElementWidth = getAbsoluteElementWidth();
                 spacing = getSpacing();
-                initPosition();
+                if (infinityMode) {
+                    initPosition();
+                }
                 init();
+                checkPosition();
                 setRowJustifyContent();
             });
 
-            function addClones () {
+            function addClones() {
                 for (let i = 1; i <= swipeSlides; i++) {
                     rowSelector.children(`.slider-item:nth-last-child(${((i * 2) - 1)})`).clone().prependTo(rowSelector);
                     rowSelector.children(`.slider-item:nth-child(${(i * 2)})`).clone().appendTo(rowSelector);
@@ -90,11 +98,13 @@ $(function () {
             function firstInit() {
                 absoluteElementWidth = getAbsoluteElementWidth();
                 spacing = getSpacing();
+                numOfElements = rowSelector.find(".slider-item").length;
                 if (infinityMode) {
                     addClones();
                     initPosition();
+                } else {
+                    setPoints();
                 }
-                numOfElements = rowSelector.find(".slider-item").length;
                 rowWidth = calculateRowWidth();
                 relativeElementWidth = calculateElementWidth();
 
@@ -108,6 +118,7 @@ $(function () {
                 numOfElements = rowSelector.find(".slider-item").length;
                 rowWidth = calculateRowWidth();
                 relativeElementWidth = calculateElementWidth();
+                setPoints();
 
                 rowSelector.css("width", `${rowWidth}%`);
                 rowSelector.children(".slider-item").css("width", `${relativeElementWidth}%`);
@@ -121,7 +132,13 @@ $(function () {
                 }
             }
 
-            function sortSizeSets () {
+            function checkPosition() {
+                position = -((absoluteElementWidth + spacing) * swipeSlides) * numOfSwipe;
+                position = position < getLastPosition() ? getLastPosition() : position;
+                rowSelector.css("left", `${position}%`);
+            }
+
+            function sortSizeSets() {
                 params.visibleElements.sort(function (a, b) {
                     if (a.minScreenWidth > b.minScreenWidth) {
                         return -1;
@@ -147,7 +164,7 @@ $(function () {
                 let elementsWidthSum = 90;
 
                 if (visibleElements > 1) {
-                    return  elementsWidthSum / visibleElements;
+                    return elementsWidthSum / visibleElements;
                 } else {
                     return elementsWidthSum;
                 }
@@ -204,24 +221,59 @@ $(function () {
 
             function moveLeft(speed) {
                 rowSelector.queue(function () {
+                    let oldPosition = position;
                     position += (absoluteElementWidth + spacing) * swipeSlides;
                     position = Math.min(position, 0);
+                    numOfSwipe = oldPosition === position ? numOfSwipe : numOfSwipe - 1;
                     $(this).dequeue();
                 }).animate({left: `${position}%`}, {duration: speed});
             }
 
             function moveRight(speed) {
                 rowSelector.queue(function () {
+                    let oldPosition = position;
                     position -= (absoluteElementWidth + spacing) * swipeSlides;
-                    position = Math.max(position, -(absoluteElementWidth + spacing) * (numOfElements - visibleElements));
+                    position = Math.max(position, getLastPosition());
+                    numOfSwipe = oldPosition === position ? numOfSwipe : numOfSwipe + 1;
                     $(this).dequeue();
                 }).animate({left: `${position}%`}, {duration: speed});
+            }
+
+            function moveOnPoint(swipe) {
+                rowSelector.queue(function () {
+                    numOfSwipe = swipe.index();
+                    let oldPosition = position;
+                    position = -((absoluteElementWidth + spacing) * swipeSlides) * numOfSwipe;
+                    if (oldPosition > position) {
+                        position = Math.max(position, getLastPosition());
+                    } else if (oldPosition < position) {
+                        position = Math.min(position, 0);
+                    }
+                    $(this).dequeue();
+                }).animate({left: `${position}%`}, {duration: 500}).dequeue();
+            }
+
+            function getNumOfSwipes() {
+                return Math.ceil((numOfElements - visibleElements)/swipeSlides) + 1;
+            }
+
+            function setPoints() {
+                let numOfPoints = getNumOfSwipes();
+                carouselSelector.find('.num-of-slide').slice(1).remove();
+                for (let i = 1; i < numOfPoints; i++) {
+                    carouselSelector.find('.num-of-slide').first().clone()
+                        .prependTo(carouselSelector.find('.slides-dots-group'));
+                }
             }
 
             function moveSlidesAuto() {
                 slideshow = setInterval(function () {
                     moveRightInfinity(animationSpeed);
                 }, autoSwipeSpeed);
+            }
+
+            function getLastPosition() {
+                return -(absoluteElementWidth + spacing) * (numOfElements - visibleElements);
             }
         });
     };
